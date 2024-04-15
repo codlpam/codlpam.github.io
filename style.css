@@ -126,14 +126,6 @@ header ul li a:hover{
     color: #cf9893;
 }
 
-.mobile {
-background-color: #04AA6D;
-color: white;
-}
-
-.mobile img{
-    height: 30px;
-}
 
 /* RESPONSIVE NAV ADJUSTMENTS*/
 
@@ -165,13 +157,12 @@ color: white;
     justify-content: center; 
     align-items: flex-end;
     width: 100%;
+    margin-top: 110px;
 }
 
 .info{
     height: 700px;
-    margin-top: 200px;
     margin:auto;
-    padding-top: 5%;
     /*background-color: rgb(168, 252, 241); */
     width: 65%;
     display: inline-block;
@@ -184,7 +175,6 @@ color: white;
     position: relative;
     width: 100%;
     display: flex;
-    padding-top: 40px;
 }
 
 .top-section .left{
@@ -366,7 +356,7 @@ color: white;
 }
 
 .project-container{
-    width: 80%;
+    width: 90%;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
@@ -376,7 +366,7 @@ color: white;
 }
 
 .project{
-    width: 300px;
+    width: 350px;
     margin: 30px 50px;
     flex-grow: 1.5;
     box-sizing: border-box;
