@@ -45,15 +45,15 @@ window.addEventListener("scroll", () => {
     lastScroll = currentScroll;
 })
 
-function dropDownNav() {
-    var x = document.getElementById("myLinks");
-    if (x.style.display === "block") {
-      x.style.display = "none";
-    } else {
-      x.style.display = "block";
-    }
+/* Open the sidenav */
+function openNav() {
+  document.getElementById("mySidenav").style.width = "100%";
 }
 
+/* Close/hide the sidenav */
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
 
 const email = document.getElementById("email");
 const tooltip = document.createElement("span");
