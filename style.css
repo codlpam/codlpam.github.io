@@ -94,14 +94,67 @@ nav img{
     padding-right: 40px;
 }
 
+.menu-btn{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+    z-index: 2;
+    padding-right: 20px;
+}
+
+.menu-btn_burger{
+    width: 40px;
+    height: 6px;
+    background: black;
+    border-radius: 3px;
+    transition: all .5s ease-in-out;
+}
+
+.menu-btn_burger::before,
+.menu-btn_burger::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 6px;
+    background: black;
+    border-radius: 3px;
+    transition: all .5s ease-in-out;
+}
+
+.menu-btn_burger::before{
+    transform: translateY(-16px);
+}
+
+.menu-btn_burger::after{
+    transform: translateY(16px);
+}
+
+.menu-btn.open .menu-btn_burger{
+    transform: translateX(-50px);
+    background: transparent;
+}
+
+.menu-btn.open .menu-btn_burger::before{
+    transform: rotate(45deg) translate(35px, -35px);
+}
+
+.menu-btn.open .menu-btn_burger::after{
+    transform: rotate(-45deg) translate(35px, 35px);
+}
+
 /* The side navigation menu */
 .sidenav {
-    height: 100%; /* 100% Full-height */
+    height: 120vh; /* 100% Full-height */
     width: 0; /* 0 width - change this with JavaScript */
     position: fixed; /* Stay in place */
     z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
-    left: 0;
+    right: 0;
     background-color: #4d7c8a; 
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
@@ -142,15 +195,15 @@ nav img{
 
 /* page > 800 px hide the drop down*/
 @media only screen and (min-width: 450px){
-    nav img{
+    .menu-btn{
         display: none;
     }
 }
 
 /* page < 800 px show the drop down and hide normal nav*/
 @media only screen and (max-width: 450px){
-    nav img{
-        display:block;
+    .menu-btn{
+        display:flex;
     }
     nav ul{
         display: none;
@@ -171,7 +224,7 @@ nav img{
 }
 
 .info{
-    height: 700px;
+    height: fit-content;
     margin:auto;
     /*background-color: rgb(168, 252, 241); */
     width: 65%;
@@ -274,7 +327,7 @@ nav img{
 }
 
 /* Medium Size Small*/
-@media only screen and (min-width: 550px) and (max-width: 800px){
+@media only screen and (min-width: 500px) and (max-width: 800px){
     .myPhoto{
         content:url('./images/me-circle.png');
         width: auto;
@@ -314,9 +367,13 @@ nav img{
 }
 
 /* less than 450 px */
-@media only screen and (max-width: 550px){
+@media only screen and (max-width: 500px){
     .myPhoto{
-        content:url('');
+        content:url('./images/me-circle.png');
+        width: auto;
+        height: 70%;
+        float: right;
+        padding-top: 10px;
     }
     .top-section h1{
         font-size: 1.6rem;
@@ -331,13 +388,13 @@ nav img{
         width: 95%;
     }
     .top-section .left{
-        width: 90%;
+        width: 65%;
     }
     .top-section .right{
-        width: 0%;
+        width: 35%;
     }
     .top-section{
-        height: 20%;
+        height: 150px;
     }
     .info .bottom-section p{
         width: 100%;
@@ -345,6 +402,19 @@ nav img{
     .bottom-section{
         margin-top: 0;
     }
+}
+
+@media only screen and (max-width: 350px){
+    .myPhoto{
+        content:url('');
+    }
+    .top-section .left{
+        width: 100%;
+    }
+    .top-section .right{
+        width: 0%;
+    }
+    
 }
 
 
@@ -366,7 +436,7 @@ nav img{
 }
 
 .project-container{
-    width: 90%;
+    width: 80%;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
@@ -377,7 +447,7 @@ nav img{
 
 .project{
     width: 350px;
-    margin: 30px 50px;
+    margin: 20px 30px;
     flex-grow: 1.5;
     box-sizing: border-box;
     max-width: 85%;
@@ -439,6 +509,14 @@ nav img{
     padding: 10px;
 }
 
+.project-back a:visited{
+    color:white;
+}
+.project-back a:hover{
+    color:#cf9893;
+}
+
+
 .project-back h3{
     margin-bottom: 0;
 }
@@ -453,9 +531,12 @@ nav img{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-@media only screen and (max-width: 400px){
+@media only screen and (max-width: 550px){
     #projects h1{
         font-size: 3rem;
+    }
+    #projects .project-container{
+        width: 95%;
     }
 }
 
@@ -517,8 +598,9 @@ footer .contact p{
 .tooltip {
     visibility: hidden;
     width: max-content;
+    height: 20px;
     font-size: 1rem;
-    background-color: #949494;
+    background-color: #cf9893;
     color: black;
     text-align: center;
     border-radius: 6px;

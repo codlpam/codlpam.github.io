@@ -1,30 +1,4 @@
-/*
-
-function getRandomColor() {
-    var letters = '0123456789ABCDEF';
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-}
-*/
-
-// Function to change background color when clicked
-function changeBackgroundColor() {
-    var color = getRandomColor();
-    var aboutMe = document.getElementById('about-me');
-    aboutMe.style.backgroundColor = color;
-}
-
-// Event listener to change background color on click
-document.addEventListener('click', changeBackgroundColor);
-
-function toggleMenu() {
-    var dropdown = document.querySelector('.dropdown');
-    dropdown.classList.toggle('active');
-}
-
+/* Nav that appears on scroll up */
 
 const header = document.querySelector("header");
 let lastScroll = 0;
@@ -45,15 +19,25 @@ window.addEventListener("scroll", () => {
     lastScroll = currentScroll;
 })
 
-/* Open the sidenav */
-function openNav() {
-  document.getElementById("mySidenav").style.width = "100%";
-}
+/* Menu btn click */
 
-/* Close/hide the sidenav */
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-}
+const menuBtn = document.querySelector('.menu-btn');
+let menuOpen = false;
+menuBtn.addEventListener('click', () => {
+  if(!menuOpen){
+    menuBtn.classList.add('open');
+    menuOpen = true;
+    document.getElementById("mySidenav").style.width = "100%";
+    document.body.style.overflow = 'hidden';
+    document.getElementsByClassName('menu-btn').style.display = flex;
+  }else{
+    menuBtn.classList.remove('open');
+    menuOpen = false;
+    document.getElementById("mySidenav").style.width = "0";
+    document.body.style.overflow = 'auto';
+  }
+})
+
 
 const email = document.getElementById("email");
 const tooltip = document.createElement("span");
@@ -66,15 +50,16 @@ email.onclick = function() {
     tooltip.textContent = "Copied!";
     setTimeout(function() {
         tooltip.textContent = "Copy";
-    }, 1500); // Reset tooltip text after 1.5 seconds
+    }, 1000); 
 };
+
+
+/* flipping projects */
 
 const projects = document.querySelectorAll('.project');
 
-// Add click event listener to each project
 projects.forEach(project => {
     project.addEventListener('click', () => {
-        // Toggle the 'project-clicked' class to trigger the flip animation
         project.classList.toggle('project-clicked');
     });
 });
