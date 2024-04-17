@@ -25,18 +25,27 @@ const menuBtn = document.querySelector('.menu-btn');
 let menuOpen = false;
 menuBtn.addEventListener('click', () => {
   if(!menuOpen){
-    menuBtn.classList.add('open');
-    menuOpen = true;
-    document.getElementById("mySidenav").style.width = "100%";
-    document.body.style.overflow = 'hidden';
-    document.getElementsByClassName('menu-btn').style.display = flex;
+    openNav();
   }else{
-    menuBtn.classList.remove('open');
-    menuOpen = false;
-    document.getElementById("mySidenav").style.width = "0";
-    document.body.style.overflow = 'auto';
+    
+    closeNav();
   }
 })
+
+const openNav = () => {
+  menuBtn.classList.add('open');
+  menuOpen = true;
+  document.getElementById("mySidenav").style.width = "100%";
+  document.body.style.overflow = 'hidden';
+  document.getElementsByClassName('menu-btn').style.display = flex;
+}
+
+const closeNav = () =>{
+  document.getElementById("mySidenav").style.width = "0";
+  document.body.style.overflow = 'auto';
+  menuBtn.classList.remove('open');
+  menuOpen = false;
+}
 
 
 const email = document.getElementById("email");
